@@ -2,7 +2,7 @@ package trabalhofinal.sistemauniversidade.disciplinas;
 import java.util.ArrayList;
 import trabalhofinal.sistemauniversidade.pessoas.Aluno;
 
-public class Disciplina {
+public abstract class Disciplina {
     private String nome, curso, professor;
     private ArrayList<Aluno> alunos;
 
@@ -12,6 +12,8 @@ public class Disciplina {
         this.professor = professor;
         this.alunos = alunos;
     }
+    // abstract methods
+    public abstract String getPeriodoAula(); 
 
     // getters and setters
     public String getNome() {
@@ -41,5 +43,6 @@ public class Disciplina {
     public void setProfessor(String professor) {
         this.professor = professor;
     }
+
 
 }

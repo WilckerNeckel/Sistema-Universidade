@@ -11,6 +11,11 @@ public class DisciplinaEletiva extends Disciplina {
         super(nome, curso, professor, alunos);
         this.area = area;
     }
+    
+    @Override
+    public String getPeriodoAula(){
+        return "10/12/2024 à 10/03/2025";
+    }
 
     // getters and setters
     public String getArea() {
