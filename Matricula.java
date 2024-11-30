@@ -3,22 +3,39 @@ package trabalhofinal.sistemauniversidade;
 import trabalhofinal.sistemauniversidade.pessoas.Aluno;
 import trabalhofinal.sistemauniversidade.disciplinas.Disciplina;
 import java.util.ArrayList;
+import trabalhofinal.sistemauniversidade.disciplinas.DisciplinaEletiva;
+import trabalhofinal.sistemauniversidade.disciplinas.DisciplinaRegular;
+
 
 public class Matricula {
     private Aluno aluno;
     private Curso curso;
     private ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();
 
-    public Matricula(Aluno aluno, Curso curso, Disciplina disciplinas) {
+    public Matricula(Aluno aluno, Curso curso, ArrayList<Disciplina> disciplinas) {
         this.aluno = aluno;
         this.curso = curso;
-        this.disciplinas.add(disciplinas);
+        this.addDisciplinas(disciplinas);
     }
 
     // methods
+    public void addDisciplinas(ArrayList<Disciplina> disciplinas) {
+        int countDisciplinaRegular = 0;
+        int countDisciplinaEletiva = 0;
 
-    public void addDisciplina(Disciplina disciplina) {
-        this.disciplinas.add(disciplina);
+        for (Disciplina disciplina : disciplinas) {
+            if (disciplina instanceof DisciplinaRegular) {
+                countDisciplinaRegular++;
+            } else if (disciplina instanceof DisciplinaEletiva) {
+                countDisciplinaEletiva++;
+            }
+        }
+
+        if (countDisciplinaRegular < 2 || countDisciplinaEletiva < 1) {
+            throw new IllegalArgumentException("A matrícula deve conter pelo menos 2 disciplinas regulares e 1 disciplina eletiva.");
+        }
+
+        this.disciplinas.addAll(disciplinas);
     }
 
     public void removeDisciplina(Disciplina disciplina) {
