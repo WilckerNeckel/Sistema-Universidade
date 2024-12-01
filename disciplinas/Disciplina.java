@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import trabalhofinal.sistemauniversidade.Curso;
 import trabalhofinal.sistemauniversidade.Nota;
+import trabalhofinal.sistemauniversidade.Notas;
 import trabalhofinal.sistemauniversidade.pessoas.Aluno;
 import trabalhofinal.sistemauniversidade.pessoas.Professor;
 
@@ -11,40 +12,46 @@ public abstract class Disciplina {
     private String nome;
     Curso curso;
     private Professor professor;
-    private ArrayList<Aluno> alunos;
-    private ArrayList<Aluno> alunosMatriculados = new ArrayList<Aluno>();
-    private ArrayList<Nota> notas1Unidade;
-    private ArrayList<Nota> notas2Unidade;
-    private ArrayList<Nota> notas3Unidade;
+    private ArrayList<Aluno> alunos = new ArrayList<Aluno>();
+    private Notas notas;
 
     public Disciplina(String nome, Curso curso, Professor professor, ArrayList<Aluno> alunos) {
         this.nome = nome;
         this.curso = curso;
         this.professor = professor;
-        this.alunosMatriculados = alunos;
+        this.alunos = alunos;
+        this.notas = new Notas();
     }
 
-    public void darNota(Aluno aluno, Disciplina disciplina, double nota, int unidade) {
+    public void darNota(Aluno aluno, double nota, int unidade) {
         if (!this.getAlunos().contains(aluno)) {
             System.out.println("Aluno não está matriculado na disciplina");
             return;
         }
 
-        Nota notaObj = new Nota(aluno, disciplina, nota);
-        if (this.getNotas1Unidade().contains(notaObj) || this.getNotas2Unidade().contains(notaObj) || notas3Unidade.contains(notaObj)) {
-            System.out.println("Nota já cadastrada");
-            return;
-        }
+        Nota notaObj = new Nota(aluno, nota);
 
         switch (unidade) {
             case 1:
-                this.notas1Unidade.add(notaObj);
+                if (this.notas.getNotas1Unidade().contains(notaObj)) {
+                    System.out.println("Nota já cadastrada para essa unidade");
+                    return;
+                }
+                this.notas.addNota1Unidade(notaObj);
                 break;
             case 2:
-                this.notas2Unidade.add(notaObj);
+                if (this.notas.getNotas2Unidade().contains(notaObj)) {
+                    System.out.println("Nota já cadastrada para essa unidade");
+                    return;
+                }
+                this.notas.addNota2Unidade(notaObj);
                 break;
             case 3:
-                this.notas3Unidade.add(notaObj);
+                if (this.notas.getNotas3Unidade().contains(notaObj)) {
+                    System.out.println("Nota já cadastrada para essa unidade");
+                    return;
+                }
+                this.notas.addNota3Unidade(notaObj);;
                 break;
             default:
                 System.out.println("Unidade inválida");
@@ -60,17 +67,17 @@ public abstract class Disciplina {
     // methods
 
     public void addAluno(Aluno aluno) {
-        this.alunosMatriculados.add(aluno);
+        this.alunos.add(aluno);
     }
 
     public void removeAluno(Aluno aluno) {
-        this.alunosMatriculados.remove(aluno);
+        this.alunos.remove(aluno);
     }
 
     public void removeAluno(String nome) {
-        for (Aluno aluno : alunosMatriculados) {
+        for (Aluno aluno : alunos) {
             if (aluno.getNome().equals(nome)) {
-                alunosMatriculados.remove(aluno);
+                alunos.remove(aluno);
                 break;
             }
         }
@@ -93,21 +100,9 @@ public abstract class Disciplina {
         return this.alunos;
     }
 
-    public ArrayList<Aluno> getAlunosMatriculados() {
-        return this.alunosMatriculados;
-    }
-
-    public ArrayList<Nota> getNotas1Unidade() {
-        return this.notas1Unidade;
-    }
-
-    public ArrayList<Nota> getNotas2Unidade() {
-        return this.notas2Unidade;
-    }
-
-    public ArrayList<Nota> getNotas3Unidade() {
-        return this.notas3Unidade;
-    }
+    public Notas getNotas() {
+        return this.notas;
+    } 
 
     public void setNome(String nome) {
         this.nome = nome;
@@ -125,21 +120,8 @@ public abstract class Disciplina {
         this.alunos = alunos;
     }
 
-    public void setAlunosMatriculados(ArrayList<Aluno> alunosMatriculados) {
-        this.alunosMatriculados = alunosMatriculados;
+    public void setalunos(ArrayList<Aluno> alunos) {
+        this.alunos = alunos;
     }
-
-    public void setNotas1Unidade(ArrayList<Nota> notas1Unidade) {
-        this.notas1Unidade = notas1Unidade;
-    }
-
-    public void setNotas2Unidade(ArrayList<Nota> notas2Unidade) {
-        this.notas2Unidade = notas2Unidade;
-    }
-
-    public void setNotas3Unidade(ArrayList<Nota> notas3Unidade) {
-        this.notas3Unidade = notas3Unidade;
-    }
-
 
 }

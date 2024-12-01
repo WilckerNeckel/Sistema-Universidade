@@ -11,8 +11,10 @@ public class Matricula {
     private Aluno aluno;
     private Curso curso;
     private ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();
+    private int numero;
 
-    public Matricula(Aluno aluno, Curso curso, ArrayList<Disciplina> disciplinas) {
+    public Matricula(int numero, Aluno aluno, Curso curso, ArrayList<Disciplina> disciplinas) {
+        this.numero = numero;
         this.aluno = aluno;
         this.curso = curso;
         this.addDisciplinas(disciplinas);
@@ -66,14 +68,22 @@ public class Matricula {
         return aluno;
     }
 
-    public void setAluno(Aluno aluno) {
-        this.aluno = aluno;
+    public int getNumero() {
+        return numero;
     }
-
+    
     public Curso getCurso() {
         return curso;
     }
 
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+    
     public void setCurso(Curso curso) {
         this.curso = curso;
     }
