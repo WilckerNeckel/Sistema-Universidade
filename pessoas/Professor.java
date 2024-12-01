@@ -1,15 +1,31 @@
 package trabalhofinal.sistemauniversidade.pessoas;
-
 import java.util.ArrayList;
-
 import trabalhofinal.sistemauniversidade.disciplinas.Disciplina;
 
 public class Professor extends Pessoa {
     private ArrayList<Disciplina> disciplinas;
 
+
     public Professor(String nome, String cpf, String endereco, String telefone) {
         super(nome, cpf, endereco, telefone);
         this.disciplinas = new ArrayList<Disciplina>();
+    }
+
+    // methods
+    public void darNota(Aluno aluno, String nomeDisciplina, double nota, int unidade) {
+        for (Disciplina disciplina : disciplinas) {
+            if (disciplina.getNome().equals(nomeDisciplina)) {
+                disciplina.darNota(aluno, disciplina, nota, unidade);
+                return;
+            }
+        }
+        System.out.println("Disciplina não encontrada");
+    }
+
+    public void printDisciplinas() {
+        for (Disciplina disciplina : disciplinas) {
+            System.out.println(disciplina.getNome());
+        }
     }
 
     // getters and setters
