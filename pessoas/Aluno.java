@@ -1,7 +1,7 @@
 package trabalhofinal.sistemauniversidade.pessoas;
 
-import trabalhofinal.sistemauniversidade.Matricula;
-import trabalhofinal.sistemauniversidade.Curso;
+import trabalhofinal.sistemauniversidade.Curso.Curso;
+import trabalhofinal.sistemauniversidade.Curso.Matricula;
 
 public class Aluno extends Pessoa {
     private Matricula matricula;

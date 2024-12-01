@@ -2,9 +2,9 @@ package trabalhofinal.sistemauniversidade.disciplinas;
 
 import java.util.ArrayList;
 
-import trabalhofinal.sistemauniversidade.Curso;
-import trabalhofinal.sistemauniversidade.Nota;
-import trabalhofinal.sistemauniversidade.Notas;
+import trabalhofinal.sistemauniversidade.Notas.Notas;
+import trabalhofinal.sistemauniversidade.Curso.Curso;
+import trabalhofinal.sistemauniversidade.Notas.Nota;
 import trabalhofinal.sistemauniversidade.pessoas.Aluno;
 import trabalhofinal.sistemauniversidade.pessoas.Professor;
 

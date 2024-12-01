@@ -1,4 +1,4 @@
-package trabalhofinal.sistemauniversidade;
+package trabalhofinal.sistemauniversidade.Curso;
 
 import trabalhofinal.sistemauniversidade.pessoas.Aluno;
 import trabalhofinal.sistemauniversidade.disciplinas.Disciplina;
@@ -83,7 +83,7 @@ public class Matricula {
     public void setNumero(int numero) {
         this.numero = numero;
     }
-    
+
     public void setCurso(Curso curso) {
         this.curso = curso;
     }

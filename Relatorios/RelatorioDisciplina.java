@@ -1,4 +1,4 @@
-package trabalhofinal.sistemauniversidade;
+package trabalhofinal.sistemauniversidade.Relatorios;
 
 import java.util.ArrayList;
 

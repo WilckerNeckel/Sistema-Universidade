@@ -2,7 +2,7 @@ package trabalhofinal.sistemauniversidade.disciplinas;
 
 import java.util.ArrayList;
 
-import trabalhofinal.sistemauniversidade.Curso;
+import trabalhofinal.sistemauniversidade.Curso.Curso;
 import trabalhofinal.sistemauniversidade.pessoas.Aluno;
 import trabalhofinal.sistemauniversidade.pessoas.Professor;
 

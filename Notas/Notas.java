@@ -1,7 +1,6 @@
-package trabalhofinal.sistemauniversidade;
+package trabalhofinal.sistemauniversidade.Notas;
 
 import java.util.ArrayList;
-
 import trabalhofinal.sistemauniversidade.pessoas.Aluno;
 
 public class Notas {

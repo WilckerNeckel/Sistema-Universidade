@@ -1,10 +1,10 @@
-package trabalhofinal.sistemauniversidade;
+package trabalhofinal.sistemauniversidade.Relatorios;
 
 import trabalhofinal.sistemauniversidade.disciplinas.Disciplina;
 import trabalhofinal.sistemauniversidade.pessoas.Aluno;
 
 public class RelatorioAluno implements IRelatorio<Aluno> {
-    
+
     @Override
     public void informacoesBasicas(Aluno aluno) {
         System.out.println("Nome: " + aluno.getNome());

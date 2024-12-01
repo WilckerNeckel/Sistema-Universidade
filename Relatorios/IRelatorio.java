@@ -1,4 +1,4 @@
-package trabalhofinal.sistemauniversidade;
+package trabalhofinal.sistemauniversidade.Relatorios;
 
 public interface IRelatorio<T> {
 

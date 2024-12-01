@@ -1,4 +1,4 @@
-package trabalhofinal.sistemauniversidade;
+package trabalhofinal.sistemauniversidade.Notas;
 import trabalhofinal.sistemauniversidade.pessoas.Aluno;
 
 public class Nota {

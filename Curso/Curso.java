@@ -1,4 +1,4 @@
-package trabalhofinal.sistemauniversidade;
+package trabalhofinal.sistemauniversidade.Curso;
 
 public class Curso {
     private String nome, coordenador, faculdade;
