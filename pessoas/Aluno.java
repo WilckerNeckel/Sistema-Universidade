@@ -1,19 +1,32 @@
 package trabalhofinal.sistemauniversidade.pessoas;
 
-public class Aluno extends Pessoa {
-    private String matricula;
+import trabalhofinal.sistemauniversidade.Matricula;
+import trabalhofinal.sistemauniversidade.Curso;
 
-    public Aluno(String nome, String cpf, String endereco, String telefone, String matricula) {
+public class Aluno extends Pessoa {
+    private Matricula matricula;
+    private Curso curso;
+
+    public Aluno(String nome, String cpf, String endereco, String telefone, Matricula matricula, Curso curso) {
         super(nome, cpf, endereco, telefone);
         this.matricula = matricula;
+        this.curso = curso;
     }
 
     // getters and setters
-    public String getMatricula() {
+    public Matricula getMatricula() {
         return matricula;
     }
 
-    public void setMatricula(String matricula) {
+    public void setMatricula(Matricula matricula) {
         this.matricula = matricula;
+    }
+
+    public Curso getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
     }
 }

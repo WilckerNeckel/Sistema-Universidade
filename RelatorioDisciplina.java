@@ -20,7 +20,7 @@ public class RelatorioDisciplina implements IRelatorio<Disciplina> {
         }
     }
 
-    public void relatorioAtual(Disciplina disciplina) {
+    public void notas(Disciplina disciplina) {
         for (Aluno aluno : disciplina.getAlunos()) {
             System.out.println("Matricula: " + aluno.getMatricula());
             System.out.println("Aluno: " + aluno.getNome());
@@ -32,7 +32,7 @@ public class RelatorioDisciplina implements IRelatorio<Disciplina> {
 
     public void relatorioFinal(Disciplina disciplina) {
         for (Aluno aluno : disciplina.getAlunos()) {
-            System.out.println("Matricula: " + aluno.getMatricula());
+            System.out.println("Matricula: " + aluno.getMatricula().getNumero());
             System.out.println("Aluno: " + aluno.getNome());
             System.out.println("Nota 1 unidade: " + disciplina.getNotas().notaAluno1Un(aluno));
             System.out.println("Nota 2 unidade: " + disciplina.getNotas().notaAluno2Un(aluno));
