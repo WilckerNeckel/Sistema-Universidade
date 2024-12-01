@@ -26,19 +26,15 @@ public class RelatorioDisciplina implements IRelatorio<Disciplina>{
         }
     }
 
-    private double mediaNotas(double nota1, double nota2, double nota3){
-        return ((nota1 + nota2 + nota3) / 3);
-    }
-
     public void situacaoAlunos(Disciplina disciplina){
         for (Aluno aluno : disciplina.getAlunos()) {
-            double media = mediaNotas(nota.getNota1(), nota.getNota2(), nota.getNota3());
+            double media = disciplina.getNotas().mediaGeral(aluno);
             if(media >= 7){
-                System.out.println(nota.getAluno().getNome() + " - Aprovado");
+                System.out.println(aluno.getNome() + " - Aprovado");
             }else if(media >= 4){
-                System.out.println(nota.getAluno().getNome() + " - Prova Final");
+                System.out.println(aluno.getNome() + " - Prova Final");
             }else{
-                System.out.println(nota.getAluno().getNome() + " - Reprovado");
+                System.out.println(aluno.getNome() + " - Reprovado");
             }
         }
     }

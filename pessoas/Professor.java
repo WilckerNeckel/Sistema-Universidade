@@ -15,7 +15,7 @@ public class Professor extends Pessoa {
     public void darNota(Aluno aluno, String nomeDisciplina, double nota, int unidade) {
         for (Disciplina disciplina : disciplinas) {
             if (disciplina.getNome().equals(nomeDisciplina)) {
-                disciplina.darNota(aluno, disciplina, nota, unidade);
+                disciplina.darNota(aluno, nota, unidade);
                 return;
             }
         }
