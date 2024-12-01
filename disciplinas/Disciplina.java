@@ -29,10 +29,6 @@ public abstract class Disciplina {
             System.out.println("Aluno não está matriculado na disciplina");
             return;
         }
-        if(!this.getProfessor().equals(this.getNome())){
-            System.out.println("Professor não é o responsável pela disciplina");
-            return;
-        }
 
         Nota notaObj = new Nota(aluno, disciplina, nota);
         if (this.getNotas1Unidade().contains(notaObj) || this.getNotas2Unidade().contains(notaObj) || notas3Unidade.contains(notaObj)) {
