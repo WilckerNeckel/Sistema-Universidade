@@ -14,7 +14,7 @@ public class Notas {
         this.notas2Unidade = new ArrayList<Nota>();
         this.notas3Unidade = new ArrayList<Nota>();
     }
-    
+
     //methods
     public double mediaGeral(Aluno aluno){
         Nota nota1 = notaAluno1Un(aluno);
@@ -23,7 +23,7 @@ public class Notas {
         return ((nota1.getNota() + nota2.getNota() + nota3.getNota()) / 3);
     }
 
-    private Nota notaAluno1Un(Aluno aluno){
+    public Nota notaAluno1Un(Aluno aluno){
         for (Nota nota: this.notas1Unidade){
             if (nota.getAluno().equals(aluno)){
                 return nota;
@@ -33,7 +33,7 @@ public class Notas {
         return null;
     }
 
-    private Nota notaAluno2Un(Aluno aluno){
+    public Nota notaAluno2Un(Aluno aluno){
         for (Nota nota: this.notas2Unidade){
             if (nota.getAluno().equals(aluno)){
                 return nota;
@@ -43,7 +43,7 @@ public class Notas {
         return null;
     }
 
-    private Nota notaAluno3Un(Aluno aluno){
+    public Nota notaAluno3Un(Aluno aluno){
         for (Nota nota: this.notas3Unidade){
             if (nota.getAluno().equals(aluno)){
                 return nota;
