@@ -28,7 +28,6 @@ public class Notas {
                 return nota;
             }
         }
-        System.out.println("Nota não encontrada da 1 unidade");
         return null;
     }
 
@@ -38,7 +37,6 @@ public class Notas {
                 return nota;
             }
         }
-        System.out.println("Nota não encontrada da 2 unidade");
         return null;
     }
 
@@ -48,7 +46,6 @@ public class Notas {
                 return nota;
             }
         }
-        System.out.println("Nota não encontrada da 3 unidade");
         return null;
     }
 

@@ -12,10 +12,11 @@ public class RelatorioCurso implements IRelatorio<Curso> {
     }
 
     public static void todosCursos(ArrayList<Curso> cursos) {
-        System.out.println("Todos os cursos cadastrados:");
+        System.out.println("\nTodos os cursos cadastrados:\n");
         for (Curso curso : cursos) {
-            System.out.println(curso.getNome());
+            System.out.println("* " + curso.getNome());
         }
+        System.out.println();
     }
 
     public void disciplinasCurso(Curso curso) {

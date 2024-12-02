@@ -12,13 +12,14 @@ public abstract class Disciplina {
     private String nome;
     Curso curso;
     private Professor professor;
-    private ArrayList<Aluno> alunos = new ArrayList<Aluno>();
+    private ArrayList<Aluno> alunos;
     private Notas notas;
 
     public Disciplina(String nome, Curso curso) {
         this.nome = nome;
         this.curso = curso;
         this.notas = new Notas();
+        this.alunos = new ArrayList<Aluno>();
     }
 
     public void darNota(Aluno aluno, double nota, int unidade) {
@@ -56,7 +57,7 @@ public abstract class Disciplina {
                 break;
         }
 
-        System.out.println("Nota cadastrada com sucesso");
+        System.out.println("Nota cadastrada com sucesso!");
     }
 
     // abstract methods

@@ -33,7 +33,7 @@ public class Matricula {
         }
 
         if (countDisciplinaRegular < 2 || countDisciplinaEletiva < 1) {
-            throw new IllegalArgumentException("A matrícula deve conter pelo menos 2 disciplinas regulares e 1 disciplina eletiva.");
+            throw new IllegalArgumentException("ATENÇÃO: A matrícula deve conter pelo menos 2 disciplinas regulares e 1 disciplina eletiva.\n");
         }
 
         this.disciplinas.addAll(disciplinas);

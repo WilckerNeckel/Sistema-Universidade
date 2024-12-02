@@ -7,11 +7,14 @@ import trabalhofinal.sistemauniversidade.disciplinas.Disciplina;
 public class Curso {
     private String nome, coordenador, faculdade;
     private ArrayList<Disciplina> disciplinas;
+    private ArrayList<Matricula> matriculas;
     
     public Curso(String nome, String coordenador, String faculdade) {
         this.nome = nome;
         this.coordenador = coordenador;
         this.faculdade = faculdade;
+        this.disciplinas = new ArrayList<Disciplina>();
+        this.matriculas = new ArrayList<Matricula>();
     }
 
     // methods
@@ -23,6 +26,20 @@ public class Curso {
     public String getNome() {
         return this.nome;
     }
+
+    public ArrayList<Matricula> getMatriculas() {
+        return this.matriculas;
+    }
+
+    public void addMatricula(Matricula matricula) {
+        this.matriculas.add(matricula);
+    }
+
+    public void removeMatricula(Matricula matricula) {
+        this.matriculas.remove(matricula);
+    }
+
+
 
     public String getCoordenador() {
         return this.coordenador;
@@ -37,9 +54,11 @@ public class Curso {
     }
 
     public void professoresDisciplinas() {
-        System.out.println("Professores do curso " + this.nome);
+        System.out.println("Professores do curso " + this.nome + ":\n");
         for (Disciplina disciplina : disciplinas) {
-            System.out.println("Professor" +disciplina.getProfessor().getNome() + " - " + disciplina.getNome());
+            if (disciplina.getProfessor() != null) {
+                System.out.println(disciplina.getProfessor().getNome() + " - " + disciplina.getNome());
+            }
         }
     }
 
