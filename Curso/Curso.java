@@ -3,12 +3,11 @@ package trabalhofinal.sistemauniversidade.Curso;
 import java.util.ArrayList;
 import trabalhofinal.sistemauniversidade.disciplinas.Disciplina;
 
-
 public class Curso {
     private String nome, coordenador, faculdade;
     private ArrayList<Disciplina> disciplinas;
     private ArrayList<Matricula> matriculas;
-    
+
     public Curso(String nome, String coordenador, String faculdade) {
         this.nome = nome;
         this.coordenador = coordenador;
@@ -38,8 +37,6 @@ public class Curso {
     public void removeMatricula(Matricula matricula) {
         this.matriculas.remove(matricula);
     }
-
-
 
     public String getCoordenador() {
         return this.coordenador;

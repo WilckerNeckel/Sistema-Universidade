@@ -1,4 +1,5 @@
 package trabalhofinal.sistemauniversidade.pessoas;
+
 import trabalhofinal.sistemauniversidade.Curso.Matricula;
 
 public class Aluno extends Pessoa {

@@ -64,7 +64,6 @@ public abstract class Disciplina {
     public abstract String getPeriodoAula();
 
     // methods
-
     public void addAluno(Aluno aluno) {
         this.alunos.add(aluno);
     }

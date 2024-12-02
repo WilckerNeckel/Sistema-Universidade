@@ -1,11 +1,11 @@
 package trabalhofinal.sistemauniversidade.pessoas;
+
 import java.util.ArrayList;
 import trabalhofinal.sistemauniversidade.disciplinas.Disciplina;
 
 public class Professor extends Pessoa {
     private ArrayList<Disciplina> disciplinas;
     private double salario;
-
 
     public Professor(String nome, String cpf, String telefone, double salario) {
         super(nome, cpf, telefone);

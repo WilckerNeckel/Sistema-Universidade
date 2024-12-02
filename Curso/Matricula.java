@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import trabalhofinal.sistemauniversidade.disciplinas.DisciplinaEletiva;
 import trabalhofinal.sistemauniversidade.disciplinas.DisciplinaRegular;
 
-
 public class Matricula {
     private Aluno aluno;
     private Curso curso;
@@ -33,7 +32,8 @@ public class Matricula {
         }
 
         if (countDisciplinaRegular < 2 || countDisciplinaEletiva < 1) {
-            throw new IllegalArgumentException("ATENÇÃO: A matrícula deve conter pelo menos 2 disciplinas regulares e 1 disciplina eletiva.\n");
+            throw new IllegalArgumentException(
+                    "ATENÇÃO: A matrícula deve conter pelo menos 2 disciplinas regulares e 1 disciplina eletiva.\n");
         }
 
         this.disciplinas.addAll(disciplinas);
@@ -70,7 +70,7 @@ public class Matricula {
     public int getNumero() {
         return numero;
     }
-    
+
     public Curso getCurso() {
         return curso;
     }

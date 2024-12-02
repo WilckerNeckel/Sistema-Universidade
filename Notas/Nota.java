@@ -1,15 +1,16 @@
 package trabalhofinal.sistemauniversidade.Notas;
+
 import trabalhofinal.sistemauniversidade.pessoas.Aluno;
 
 public class Nota {
     private Aluno aluno;
     private double nota;
-    
+
     public Nota(Aluno aluno, double nota) {
         this.aluno = aluno;
         this.nota = nota;
     }
-    
+
     // getters and setters
     public Aluno getAluno() {
         return aluno;

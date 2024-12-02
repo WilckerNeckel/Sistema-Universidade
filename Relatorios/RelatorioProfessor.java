@@ -1,4 +1,5 @@
 package trabalhofinal.sistemauniversidade.Relatorios;
+
 import trabalhofinal.sistemauniversidade.Curso.Curso;
 import java.util.ArrayList;
 
@@ -9,7 +10,7 @@ public class RelatorioProfessor {
             System.out.println("Nenhum curso cadastrado");
             return;
         }
-        
+
         for (Curso curso : cursos) {
             curso.professoresDisciplinas();
         }

@@ -1,10 +1,6 @@
 package trabalhofinal.sistemauniversidade.disciplinas;
-
-// import java.util.ArrayList;
-
 import trabalhofinal.sistemauniversidade.Curso.Curso;
-// import trabalhofinal.sistemauniversidade.pessoas.Aluno;
-// import trabalhofinal.sistemauniversidade.pessoas.Professor;
+
 public class DisciplinaEletiva extends Disciplina {
     private String area;
 
@@ -12,9 +8,9 @@ public class DisciplinaEletiva extends Disciplina {
         super(nome, curso);
         this.area = area;
     }
-    
+
     @Override
-    public String getPeriodoAula(){
+    public String getPeriodoAula() {
         return "10/12/2024 à 10/03/2025";
     }
 
@@ -26,5 +22,5 @@ public class DisciplinaEletiva extends Disciplina {
     public void setArea(String area) {
         this.area = area;
     }
-    
+
 }

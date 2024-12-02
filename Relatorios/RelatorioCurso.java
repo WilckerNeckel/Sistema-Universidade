@@ -1,4 +1,5 @@
 package trabalhofinal.sistemauniversidade.Relatorios;
+
 import trabalhofinal.sistemauniversidade.Curso.Curso;
 import trabalhofinal.sistemauniversidade.disciplinas.Disciplina;
 import java.util.ArrayList;
@@ -20,11 +21,11 @@ public class RelatorioCurso extends Relatorio<Curso> {
         System.out.println();
     }
 
-    public void disciplinasCurso(Curso curso) {
+    public static void disciplinasCurso(Curso curso) {
         System.out.println("Disciplinas do curso:");
         for (Disciplina disciplina : curso.getDisciplinas()) {
             System.out.println(disciplina.getNome());
         }
     }
-    
+
 }
