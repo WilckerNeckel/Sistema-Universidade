@@ -2,15 +2,21 @@ package trabalhofinal.sistemauniversidade.Curso;
 
 import java.util.ArrayList;
 import trabalhofinal.sistemauniversidade.disciplinas.Disciplina;
+
+
 public class Curso {
     private String nome, coordenador, faculdade;
     private ArrayList<Disciplina> disciplinas;
     
-    public Curso(String nome, String coordenador, String faculdade, ArrayList<Disciplina> disciplinas) {
+    public Curso(String nome, String coordenador, String faculdade) {
         this.nome = nome;
         this.coordenador = coordenador;
         this.faculdade = faculdade;
-        this.disciplinas = new ArrayList<Disciplina>();
+    }
+
+    // methods
+    public void addDisciplina(Disciplina disciplina) {
+        this.disciplinas.add(disciplina);
     }
 
     // getters and setters
@@ -28,6 +34,13 @@ public class Curso {
 
     public ArrayList<Disciplina> getDisciplinas() {
         return this.disciplinas;
+    }
+
+    public void professoresDisciplinas() {
+        System.out.println("Professores do curso " + this.nome);
+        for (Disciplina disciplina : disciplinas) {
+            System.out.println("Professor" +disciplina.getProfessor().getNome() + " - " + disciplina.getNome());
+        }
     }
 
     public void setNome(String nome) {

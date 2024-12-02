@@ -4,10 +4,12 @@ import trabalhofinal.sistemauniversidade.disciplinas.Disciplina;
 
 public class Professor extends Pessoa {
     private ArrayList<Disciplina> disciplinas;
+    private double salario;
 
 
-    public Professor(String nome, String cpf, String endereco, String telefone) {
-        super(nome, cpf, endereco, telefone);
+    public Professor(String nome, String cpf, String telefone, double salario) {
+        super(nome, cpf, telefone);
+        this.salario = salario;
         this.disciplinas = new ArrayList<Disciplina>();
     }
 
@@ -31,6 +33,14 @@ public class Professor extends Pessoa {
     // getters and setters
     public ArrayList<Disciplina> getDisciplinas() {
         return disciplinas;
+    }
+
+    public double getSalario() {
+        return salario;
+    }
+
+    public void setSalario(double salario) {
+        this.salario = salario;
     }
 
     public void setDisciplinas(ArrayList<Disciplina> disciplinas) {

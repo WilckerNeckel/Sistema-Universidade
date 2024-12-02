@@ -15,11 +15,9 @@ public abstract class Disciplina {
     private ArrayList<Aluno> alunos = new ArrayList<Aluno>();
     private Notas notas;
 
-    public Disciplina(String nome, Curso curso, Professor professor, ArrayList<Aluno> alunos) {
+    public Disciplina(String nome, Curso curso) {
         this.nome = nome;
         this.curso = curso;
-        this.professor = professor;
-        this.alunos = alunos;
         this.notas = new Notas();
     }
 

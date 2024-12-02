@@ -2,6 +2,7 @@ package trabalhofinal.sistemauniversidade.Relatorios;
 
 import java.util.ArrayList;
 
+import trabalhofinal.sistemauniversidade.Curso.Curso;
 import trabalhofinal.sistemauniversidade.disciplinas.Disciplina;
 import trabalhofinal.sistemauniversidade.pessoas.Aluno;
 
@@ -14,13 +15,22 @@ public class RelatorioDisciplina implements IRelatorio<Disciplina> {
         System.out.println("Professor: " + disciplina.getCurso());
     }
 
-    public void alunosMatriculados(ArrayList<Aluno> alunos) {
+    public static void todasDisciplinas(ArrayList<Curso> cursos) {
+        System.out.println("Todas as disciplinas cadastradas:");
+        for (Curso curso : cursos) {
+            for (Disciplina disciplina : curso.getDisciplinas()) {
+                System.out.println(disciplina.getNome() + " - " + curso.getNome());
+            }
+        }
+    }
+
+    public static void alunosMatriculados(ArrayList<Aluno> alunos) {
         for (Aluno aluno : alunos) {
             System.out.println(aluno.getNome() + " - " + aluno.getMatricula());
         }
     }
 
-    public void notas(Disciplina disciplina) {
+    public static void relatorioParcial(Disciplina disciplina) {
         for (Aluno aluno : disciplina.getAlunos()) {
             System.out.println("Matricula: " + aluno.getMatricula());
             System.out.println("Aluno: " + aluno.getNome());
@@ -30,7 +40,7 @@ public class RelatorioDisciplina implements IRelatorio<Disciplina> {
         }
     }
 
-    public void relatorioFinal(Disciplina disciplina) {
+    public static void relatorioFinal(Disciplina disciplina) {
         for (Aluno aluno : disciplina.getAlunos()) {
             System.out.println("Matricula: " + aluno.getMatricula().getNumero());
             System.out.println("Aluno: " + aluno.getNome());

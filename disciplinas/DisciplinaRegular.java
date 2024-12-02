@@ -1,15 +1,16 @@
 package trabalhofinal.sistemauniversidade.disciplinas;
 
-import java.util.ArrayList;
+// import java.util.ArrayList;
+
 
 import trabalhofinal.sistemauniversidade.Curso.Curso;
-import trabalhofinal.sistemauniversidade.pessoas.Aluno;
-import trabalhofinal.sistemauniversidade.pessoas.Professor;
+// import trabalhofinal.sistemauniversidade.pessoas.Aluno;
+// import trabalhofinal.sistemauniversidade.pessoas.Professor;
 
 public class DisciplinaRegular extends Disciplina{
 
-    public DisciplinaRegular(String nome, Curso curso, Professor professor, String area, ArrayList<Aluno> alunos) {
-        super(nome, curso, professor, alunos);
+    public DisciplinaRegular(String nome, Curso curso) {
+        super(nome, curso);
     }
     
     @Override

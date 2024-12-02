@@ -13,9 +13,8 @@ public class Matricula {
     private ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();
     private int numero;
 
-    public Matricula(int numero, Aluno aluno, Curso curso, ArrayList<Disciplina> disciplinas) {
+    public Matricula(int numero, Curso curso, ArrayList<Disciplina> disciplinas) {
         this.numero = numero;
-        this.aluno = aluno;
         this.curso = curso;
         this.addDisciplinas(disciplinas);
     }

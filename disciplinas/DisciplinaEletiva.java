@@ -1,15 +1,15 @@
 package trabalhofinal.sistemauniversidade.disciplinas;
 
-import java.util.ArrayList;
+// import java.util.ArrayList;
 
 import trabalhofinal.sistemauniversidade.Curso.Curso;
-import trabalhofinal.sistemauniversidade.pessoas.Aluno;
-import trabalhofinal.sistemauniversidade.pessoas.Professor;
+// import trabalhofinal.sistemauniversidade.pessoas.Aluno;
+// import trabalhofinal.sistemauniversidade.pessoas.Professor;
 public class DisciplinaEletiva extends Disciplina {
     private String area;
 
-    public DisciplinaEletiva(String nome, Curso curso, Professor professor, String area, ArrayList<Aluno> alunos) {
-        super(nome, curso, professor, alunos);
+    public DisciplinaEletiva(String nome, Curso curso, String area) {
+        super(nome, curso);
         this.area = area;
     }
     

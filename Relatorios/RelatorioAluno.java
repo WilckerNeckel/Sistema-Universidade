@@ -9,7 +9,6 @@ public class RelatorioAluno implements IRelatorio<Aluno> {
     public void informacoesBasicas(Aluno aluno) {
         System.out.println("Nome: " + aluno.getNome());
         System.out.println("CPF: " + aluno.getCpf());
-        System.out.println("Endereço: " + aluno.getEndereco());
         System.out.println("Telefone: " + aluno.getTelefone());
         System.out.println("Matrícula: " + aluno.getMatricula());
     }
