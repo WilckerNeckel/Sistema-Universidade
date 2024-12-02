@@ -90,8 +90,9 @@ public class RelatorioDisciplina extends Relatorio<Disciplina> {
             System.out.println("Média: " + String.format("%.2f", disciplina.getNotas().mediaGeral(aluno)));
             System.out
                     .println("Situação: " + (disciplina.getNotas().mediaGeral(aluno) >= 7 ? "Aprovado" : "Reprovado"));
-
+            System.out.println("\n");
         }
+        System.out.println("\n");
     }
 
 }
