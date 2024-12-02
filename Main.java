@@ -19,6 +19,7 @@ public class Main {
     public static void main(String[] args) {
         int opcao = -1;
         Scanner scan = new Scanner(System.in);
+        // Menu principal
         while (opcao != 0) {
             System.out.println("\n\n-----Sistema de Universidade----\n");
             System.out.println("Escolha uma opção: ");
@@ -26,18 +27,22 @@ public class Main {
             mainMenu();
             opcao = scan.nextInt();
             switch (opcao) {
+                // Cadastros
                 case 1:
                     System.out.println("\nEscolha o tipo de cadastro:\n");
                     cadastros(scan);
                     break;
+                
+                // Dar notas
                 case 2:
                     darNotas(scan);
                     break;
+
+                // Relatórios
                 case 3:
                     System.out.println("\nEscolha o tipo de relatório:\n");
                     relatorios(scan);
                     break;
-
                 case 0:
                     System.out.println("Saindo...");
                     break;
@@ -51,6 +56,8 @@ public class Main {
     }
 
     // Menus
+
+    // Menu principal
     public static void mainMenu() {
         System.out.println("1 - Cadastros");
         System.out.println("2 - Dar notas");
@@ -58,6 +65,7 @@ public class Main {
         System.out.println("0 - Sair");
     }
 
+    // Menu de cadastros
     public static void cadastrosMenu() {
 
         System.out.println("\nEscolha o tipo de cadastro:\n");
@@ -68,6 +76,7 @@ public class Main {
         System.out.println("0 - Voltar");
     }
 
+    // Menu de relatórios
     public static void relatoriosMenu() {
         System.out.println("1 - NOTAS");
         System.out.println("2 - Todos os cursos");
@@ -83,6 +92,7 @@ public class Main {
             cadastrosMenu();
             opcao = scan.nextInt();
             switch (opcao) {
+                // Cadastro de curso
                 case 1:
                     System.out.println("\nCadastro de curso:\n");
                     System.out.println("Nome: ");
@@ -96,7 +106,10 @@ public class Main {
                     System.out.println("Curso cadastrado com sucesso!\n");
 
                     break;
+                
+                // Cadastro de disciplina
                 case 2:
+                    
                     System.out.println("\nCadastro de disciplina:\n");
                     System.out.println("1 - Disciplina Regular");
                     System.out.println("2 - Disciplina Eletiva");
@@ -108,6 +121,8 @@ public class Main {
                     Curso cursoSelecionado = selecionarCurso(scan);
                     cadastroDisciplina(scan, tipoDisciplina, nomeDisciplina, cursoSelecionado);
                     break;
+
+                // Cadastro de professor
                 case 3:
                     System.out.println("\nCadastro de professor: \n");
                     System.out.println("Nome: ");
@@ -125,7 +140,8 @@ public class Main {
                     disciplinaProfessor.setProfessor(professor);
                     System.out.println("Professor cadastrado com sucesso!");
                     break;
-
+                
+                // Matricula de aluno
                 case 4:
                     System.out.println("\nNúmero da matrícula: ");
                     int numeroMatricula = scan.nextInt();
@@ -163,15 +179,19 @@ public class Main {
         }
     }
 
+    // método de cadastro de disciplina
     public static void cadastroDisciplina(Scanner scan, int tipoDisciplina, String nomeDisciplina, Curso curso) {
 
         switch (tipoDisciplina) {
+            // Disciplina regular
             case 1:
                 Disciplina disciplina = new DisciplinaRegular(nomeDisciplina, curso);
                 curso.addDisciplina(disciplina);
 
                 System.out.println("Disciplina regular cadastrada com sucesso!");
                 break;
+            
+            // Disciplina eletiva
             case 2:
                 System.out.println("Área: ");
                 String area = scan.next();
@@ -185,12 +205,13 @@ public class Main {
         }
     }
 
+    // método de matricula de disciplinas, retorna um arraylist de disciplinas que o aluno deseja se matricular
     public static ArrayList<Disciplina> matriculaDisciplinas(Scanner scan, Curso curso) {
         ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();
         int opcao = -1;
         while (opcao != 0) {
             System.out.println("\nSelecione uma disciplina: ");
-            listaDisciplinas();
+            listaDisciplinas(curso);
             int index = scan.nextInt();
             Disciplina disciplina = curso.getDisciplinas().get(index);
             disciplinas.add(disciplina);
@@ -209,19 +230,25 @@ public class Main {
             relatoriosMenu();
             opcao = scan.nextInt();
             switch (opcao) {
+                // Relatório de notas
                 case 1:
                     relatorioNotas(scan);
                     break;
+
+                // Relatório de todos os cursos
                 case 2:
                     RelatorioCurso.todosCursos(cursos);
                     break;
+
+                // Relatório de todas as disciplinas
                 case 3:
                     RelatorioDisciplina.todasDisciplinas(cursos);
                     break;
+
+                // Relatório de todos os professores
                 case 4:
                     RelatorioProfessor.todosProfessores(cursos);
                     break;
-
                 case 0:
                     System.out.println("Voltando...");
                     break;
@@ -232,6 +259,7 @@ public class Main {
         }
     }
 
+    // Método de relatório de notas
     public static void relatorioNotas(Scanner scan) {
         Curso curso = selecionarCurso(scan);
         Disciplina disciplina = selecionaDisciplina(scan, curso);
@@ -240,9 +268,11 @@ public class Main {
         System.out.println("2 - Relatório final");
         int tipoRelatorio = scan.nextInt();
         switch (tipoRelatorio) {
+            // Relatório parcial
             case 1:
                 RelatorioDisciplina.relatorioParcial(disciplina);
                 break;
+            // Relatório final
             case 2:
                 RelatorioDisciplina.relatorioFinal(disciplina);
                 break;
@@ -253,21 +283,22 @@ public class Main {
     }
 
     // Métodos auxiliares
+
+    // Lista cursos
     public static void listaCursos() {
         for (int i = 0; i < cursos.size(); i++) {
             System.out.println(i + " - " + cursos.get(i).getNome());
         }
     }
 
-    public static void listaDisciplinas() {
-        for (Curso curso : cursos) {
-            System.out.println("Curso: " + curso.getNome());
-            for (int i = 0; i < curso.getDisciplinas().size(); i++) {
-                System.out.println(i + " - " + curso.getDisciplinas().get(i).getNome());
-            }
+    // Lista disciplinas de um curso
+    public static void listaDisciplinas(Curso curso) {
+        for (int i = 0; i < curso.getDisciplinas().size(); i++) {
+            System.out.println(i + " - " + curso.getDisciplinas().get(i).getNome());
         }
     }
 
+    // Seleciona um curso
     public static Curso selecionarCurso(Scanner scan) {
         System.out.println("\nSelecione um curso:\n");
         listaCursos();
@@ -275,14 +306,16 @@ public class Main {
         return cursos.get(index);
     }
 
+    // Seleciona uma disciplina
     public static Disciplina selecionaDisciplina(Scanner scan, Curso curso) {
         System.out.println("\nSelecione uma disciplina: ");
-        listaDisciplinas();
+        listaDisciplinas(curso);
         int index = scan.nextInt();
         Disciplina disciplina = curso.getDisciplinas().get(index);
         return disciplina;
     }
 
+    // Seleciona um aluno
     public static Aluno selecionaAluno(Scanner scan, Disciplina disciplina) {
         System.out.println("Selecione um aluno: ");
         for (int i = 0; i < disciplina.getAlunos().size(); i++) {
@@ -293,6 +326,7 @@ public class Main {
         return aluno;
     }
 
+    // Método de dar notas
     public static void darNotas(Scanner scan) {
         Curso curso = selecionarCurso(scan);
         Disciplina disciplina = selecionaDisciplina(scan, curso);

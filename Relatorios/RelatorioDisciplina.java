@@ -6,8 +6,10 @@ import trabalhofinal.sistemauniversidade.Curso.Curso;
 import trabalhofinal.sistemauniversidade.disciplinas.Disciplina;
 import trabalhofinal.sistemauniversidade.pessoas.Aluno;
 
+// classe relatório de disciplina que herda de relatório
 public class RelatorioDisciplina extends Relatorio<Disciplina> {
 
+    // aplica o polimorfismo para imprimir as informações básicas da disciplina
     @Override
     public void informacoesBasicas(Disciplina disciplina) {
         System.out.println("Disciplina: " + disciplina.getNome());
@@ -15,6 +17,7 @@ public class RelatorioDisciplina extends Relatorio<Disciplina> {
         System.out.println("Professor: " + disciplina.getCurso());
     }
 
+    // métodos específicos para disciplina
     public static void todasDisciplinas(ArrayList<Curso> cursos) {
         System.out.println("\nTodas as disciplinas cadastradas:\n");
         for (Curso curso : cursos) {
@@ -25,12 +28,14 @@ public class RelatorioDisciplina extends Relatorio<Disciplina> {
         System.out.println();
     }
 
+    // método que imprime os alunos matriculados na disciplina
     public static void alunosMatriculados(ArrayList<Aluno> alunos) {
         for (Aluno aluno : alunos) {
             System.out.println(aluno.getNome() + " - " + aluno.getMatricula());
         }
     }
 
+    // método que imprime as notas dos alunos
     public static void relatorioParcial(Disciplina disciplina) {
         if (disciplina.getAlunos().size() == 0) {
             System.out.println("Nenhum aluno matriculado na disciplina");
@@ -58,6 +63,7 @@ public class RelatorioDisciplina extends Relatorio<Disciplina> {
         }
     }
 
+    // método que imprime o relatório final dos alunos
     public static void relatorioFinal(Disciplina disciplina) {
         if (disciplina.getAlunos().size() == 0) {
             System.out.println("Nenhum aluno matriculado na disciplina");

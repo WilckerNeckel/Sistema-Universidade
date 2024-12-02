@@ -12,13 +12,16 @@ public class Matricula {
     private ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();
     private int numero;
 
+    // contrutor vazio
     public Matricula(int numero, Curso curso, ArrayList<Disciplina> disciplinas) {
         this.numero = numero;
         this.curso = curso;
         this.addDisciplinas(disciplinas);
     }
 
-    // methods
+    // métodos
+
+    // adiciona disciplinas à matrícula
     public void addDisciplinas(ArrayList<Disciplina> disciplinas) {
         int countDisciplinaRegular = 0;
         int countDisciplinaEletiva = 0;
@@ -39,10 +42,12 @@ public class Matricula {
         this.disciplinas.addAll(disciplinas);
     }
 
+    // remove disciplina da matrícula pelo objeto
     public void removeDisciplina(Disciplina disciplina) {
         this.disciplinas.remove(disciplina);
     }
 
+    // remove disciplina da matrícula pelo nome
     public void removeDisciplina(String nome) {
         for (Disciplina disciplina : disciplinas) {
             if (disciplina.getNome().equals(nome)) {
@@ -52,10 +57,12 @@ public class Matricula {
         }
     }
 
+    // remove disciplina da matrícula pelo índice
     public void removeDisciplina(int index) {
         disciplinas.remove(index);
     }
 
+    // lista disciplinas da matrícula
     public void printDisciplinas() {
         for (Disciplina disciplina : disciplinas) {
             System.out.println(disciplina.getNome());

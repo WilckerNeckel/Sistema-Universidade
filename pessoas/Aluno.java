@@ -2,6 +2,7 @@ package trabalhofinal.sistemauniversidade.pessoas;
 
 import trabalhofinal.sistemauniversidade.Curso.Matricula;
 
+// classe aluno que herda de pessoa e acrescenta um atributo matricula
 public class Aluno extends Pessoa {
     private Matricula matricula;
 

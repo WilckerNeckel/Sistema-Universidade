@@ -8,6 +8,7 @@ public class Curso {
     private ArrayList<Disciplina> disciplinas;
     private ArrayList<Matricula> matriculas;
 
+    // construtores
     public Curso(String nome, String coordenador, String faculdade) {
         this.nome = nome;
         this.coordenador = coordenador;
@@ -16,9 +17,31 @@ public class Curso {
         this.matriculas = new ArrayList<Matricula>();
     }
 
-    // methods
+    // métodos
+
+    // adiciona disciplina ao curso
     public void addDisciplina(Disciplina disciplina) {
         this.disciplinas.add(disciplina);
+    }
+
+    // lista professores do curso
+    public void professoresDisciplinas() {
+        System.out.println("Professores do curso " + this.nome + ":\n");
+        for (Disciplina disciplina : disciplinas) {
+            if (disciplina.getProfessor() != null) {
+                System.out.println(disciplina.getProfessor().getNome() + " - " + disciplina.getNome());
+            }
+        }
+    }
+
+    // lista disciplinas do curso
+    public void addMatricula(Matricula matricula) {
+        this.matriculas.add(matricula);
+    }
+
+    // remove disciplina do curso
+    public void removeMatricula(Matricula matricula) {
+        this.matriculas.remove(matricula);
     }
 
     // getters and setters
@@ -28,14 +51,6 @@ public class Curso {
 
     public ArrayList<Matricula> getMatriculas() {
         return this.matriculas;
-    }
-
-    public void addMatricula(Matricula matricula) {
-        this.matriculas.add(matricula);
-    }
-
-    public void removeMatricula(Matricula matricula) {
-        this.matriculas.remove(matricula);
     }
 
     public String getCoordenador() {
@@ -48,15 +63,6 @@ public class Curso {
 
     public ArrayList<Disciplina> getDisciplinas() {
         return this.disciplinas;
-    }
-
-    public void professoresDisciplinas() {
-        System.out.println("Professores do curso " + this.nome + ":\n");
-        for (Disciplina disciplina : disciplinas) {
-            if (disciplina.getProfessor() != null) {
-                System.out.println(disciplina.getProfessor().getNome() + " - " + disciplina.getNome());
-            }
-        }
     }
 
     public void setNome(String nome) {

@@ -1,8 +1,10 @@
 package trabalhofinal.sistemauniversidade.pessoas;
 
+// classe pessoa que armazena os dados de uma pessoa
 public class Pessoa {
     private String nome, cpf, telefone;
 
+    // construtor
     public Pessoa(String nome, String cpf, String telefone) {
         this.nome = nome;
         this.cpf = cpf;

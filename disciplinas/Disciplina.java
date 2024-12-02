@@ -8,6 +8,7 @@ import trabalhofinal.sistemauniversidade.Notas.Nota;
 import trabalhofinal.sistemauniversidade.pessoas.Aluno;
 import trabalhofinal.sistemauniversidade.pessoas.Professor;
 
+// classe abstrata Disciplina que contém os atributos e métodos comuns entre DisciplinaRegular e DisciplinaEletiva
 public abstract class Disciplina {
     private String nome;
     Curso curso;
@@ -15,6 +16,7 @@ public abstract class Disciplina {
     private ArrayList<Aluno> alunos;
     private Notas notas;
 
+    // construtor disciplina
     public Disciplina(String nome, Curso curso) {
         this.nome = nome;
         this.curso = curso;
@@ -22,7 +24,11 @@ public abstract class Disciplina {
         this.alunos = new ArrayList<Aluno>();
     }
 
+    // methods
+
+    // dar nota ao aluno
     public void darNota(Aluno aluno, double nota, int unidade) {
+        // verifica se aluno está matriculado na disciplina
         if (!this.getAlunos().contains(aluno)) {
             System.out.println("Aluno não está matriculado na disciplina");
             return;
@@ -31,6 +37,7 @@ public abstract class Disciplina {
         Nota notaObj = new Nota(aluno, nota);
 
         switch (unidade) {
+            // verifica se a nota já foi cadastrada e adiciona a nota da 1 unidade
             case 1:
                 if (this.notas.getNotas1Unidade().contains(notaObj)) {
                     System.out.println("Nota já cadastrada para essa unidade");
@@ -38,6 +45,8 @@ public abstract class Disciplina {
                 }
                 this.notas.addNota1Unidade(notaObj);
                 break;
+
+            // verifica se a nota já foi cadastrada e adiciona a nota da 2 unidade
             case 2:
                 if (this.notas.getNotas2Unidade().contains(notaObj)) {
                     System.out.println("Nota já cadastrada para essa unidade");
@@ -45,6 +54,8 @@ public abstract class Disciplina {
                 }
                 this.notas.addNota2Unidade(notaObj);
                 break;
+            
+            // verifica se a nota já foi cadastrada e adiciona a nota da 3 unidade
             case 3:
                 if (this.notas.getNotas3Unidade().contains(notaObj)) {
                     System.out.println("Nota já cadastrada para essa unidade");
@@ -61,17 +72,23 @@ public abstract class Disciplina {
     }
 
     // abstract methods
+
+    // retorna o período da aula da disciplina
     public abstract String getPeriodoAula();
 
     // methods
+
+    // adiciona aluno à disciplina
     public void addAluno(Aluno aluno) {
         this.alunos.add(aluno);
     }
 
+    // remove aluno da disciplina pelo objeto
     public void removeAluno(Aluno aluno) {
         this.alunos.remove(aluno);
     }
 
+    // remove aluno da disciplina pelo nome
     public void removeAluno(String nome) {
         for (Aluno aluno : alunos) {
             if (aluno.getNome().equals(nome)) {
