@@ -2,7 +2,8 @@ package trabalhofinal.sistemauniversidade.Relatorios;
 import trabalhofinal.sistemauniversidade.Curso.Curso;
 import trabalhofinal.sistemauniversidade.disciplinas.Disciplina;
 import java.util.ArrayList;
-public class RelatorioCurso implements IRelatorio<Curso> {
+
+public class RelatorioCurso extends Relatorio<Curso> {
 
     @Override
     public void informacoesBasicas(Curso curso) {

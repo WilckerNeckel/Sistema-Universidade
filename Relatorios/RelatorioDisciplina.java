@@ -6,7 +6,7 @@ import trabalhofinal.sistemauniversidade.Curso.Curso;
 import trabalhofinal.sistemauniversidade.disciplinas.Disciplina;
 import trabalhofinal.sistemauniversidade.pessoas.Aluno;
 
-public class RelatorioDisciplina implements IRelatorio<Disciplina> {
+public class RelatorioDisciplina extends Relatorio<Disciplina> {
 
     @Override
     public void informacoesBasicas(Disciplina disciplina) {

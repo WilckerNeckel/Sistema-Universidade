@@ -3,7 +3,7 @@ package trabalhofinal.sistemauniversidade.Relatorios;
 import trabalhofinal.sistemauniversidade.disciplinas.Disciplina;
 import trabalhofinal.sistemauniversidade.pessoas.Aluno;
 
-public class RelatorioAluno implements IRelatorio<Aluno> {
+public class RelatorioAluno extends Relatorio<Aluno> {
 
     @Override
     public void informacoesBasicas(Aluno aluno) {
