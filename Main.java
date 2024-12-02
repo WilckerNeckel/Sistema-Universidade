@@ -10,7 +10,6 @@ import trabalhofinal.sistemauniversidade.Curso.Matricula;
 import trabalhofinal.sistemauniversidade.Relatorios.RelatorioCurso;
 import trabalhofinal.sistemauniversidade.Relatorios.RelatorioDisciplina;
 import trabalhofinal.sistemauniversidade.Relatorios.RelatorioProfessor;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -51,6 +50,7 @@ public class Main {
 
     }
 
+    // Menus
     public static void mainMenu() {
         System.out.println("1 - Cadastros");
         System.out.println("2 - Dar notas");
@@ -76,6 +76,7 @@ public class Main {
         System.out.println("0 - Voltar");
     }
 
+    // Tela de cadastros
     public static void cadastros(Scanner scan) {
         int opcao = -1;
         while (opcao != 0) {
@@ -106,7 +107,6 @@ public class Main {
 
                     Curso cursoSelecionado = selecionarCurso(scan);
                     cadastroDisciplina(scan, tipoDisciplina, nomeDisciplina, cursoSelecionado);
-
                     break;
                 case 3:
                     System.out.println("\nCadastro de professor: \n");
@@ -124,7 +124,6 @@ public class Main {
                     professor.addDisciplina(disciplinaProfessor);
                     disciplinaProfessor.setProfessor(professor);
                     System.out.println("Professor cadastrado com sucesso!");
-
                     break;
 
                 case 4:
@@ -145,7 +144,7 @@ public class Main {
                         matricula.setAluno(aluno);
                         cursoAluno.addMatricula(matricula);
                         disciplinas.forEach(disciplina -> disciplina.addAluno(aluno));
-                        
+
                         System.out.println("Aluno matriculado com sucesso!");
                         break;
                     } catch (Exception e) {
@@ -186,13 +185,23 @@ public class Main {
         }
     }
 
-    public static Curso selecionarCurso(Scanner scan) {
-        System.out.println("\nSelecione um curso:\n");
-        listaCursos();
-        int index = scan.nextInt();
-        return cursos.get(index);
+    public static ArrayList<Disciplina> matriculaDisciplinas(Scanner scan, Curso curso) {
+        ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();
+        int opcao = -1;
+        while (opcao != 0) {
+            System.out.println("\nSelecione uma disciplina: ");
+            listaDisciplinas();
+            int index = scan.nextInt();
+            Disciplina disciplina = curso.getDisciplinas().get(index);
+            disciplinas.add(disciplina);
+
+            System.out.println("Deseja adicionar mais disciplinas? (1 - sim, 0 - não)");
+            opcao = scan.nextInt();
+        }
+        return disciplinas;
     }
 
+    // Relatórios
     public static void relatorios(Scanner scan) {
 
         int opcao = -1;
@@ -243,6 +252,7 @@ public class Main {
         }
     }
 
+    // Métodos auxiliares
     public static void listaCursos() {
         for (int i = 0; i < cursos.size(); i++) {
             System.out.println(i + " - " + cursos.get(i).getNome());
@@ -258,39 +268,19 @@ public class Main {
         }
     }
 
+    public static Curso selecionarCurso(Scanner scan) {
+        System.out.println("\nSelecione um curso:\n");
+        listaCursos();
+        int index = scan.nextInt();
+        return cursos.get(index);
+    }
+
     public static Disciplina selecionaDisciplina(Scanner scan, Curso curso) {
         System.out.println("\nSelecione uma disciplina: ");
         listaDisciplinas();
         int index = scan.nextInt();
         Disciplina disciplina = curso.getDisciplinas().get(index);
         return disciplina;
-    }
-
-    public static ArrayList<Disciplina> matriculaDisciplinas(Scanner scan, Curso curso) {
-        ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();
-        int opcao = -1;
-        while (opcao != 0) {
-            System.out.println("\nSelecione uma disciplina: ");
-            listaDisciplinas();
-            int index = scan.nextInt();
-            Disciplina disciplina = curso.getDisciplinas().get(index);
-            disciplinas.add(disciplina);
-            
-            System.out.println("Deseja adicionar mais disciplinas? (1 - sim, 0 - não)");
-            opcao = scan.nextInt();
-        }
-        return disciplinas;
-    }
-
-    public static void darNotas(Scanner scan) {
-        Curso curso = selecionarCurso(scan);
-        Disciplina disciplina = selecionaDisciplina(scan, curso);
-        Aluno aluno = selecionaAluno(scan, disciplina);
-        System.out.println("Informe a unidade: (1, 2 ou 3)");
-        int unidade = scan.nextInt();
-        System.out.println("Informe a nota: ");
-        double nota = scan.nextDouble();
-        disciplina.darNota(aluno, nota, unidade);
     }
 
     public static Aluno selecionaAluno(Scanner scan, Disciplina disciplina) {
@@ -303,5 +293,15 @@ public class Main {
         return aluno;
     }
 
+    public static void darNotas(Scanner scan) {
+        Curso curso = selecionarCurso(scan);
+        Disciplina disciplina = selecionaDisciplina(scan, curso);
+        Aluno aluno = selecionaAluno(scan, disciplina);
+        System.out.println("Informe a unidade: (1, 2 ou 3)");
+        int unidade = scan.nextInt();
+        System.out.println("Informe a nota: ");
+        double nota = scan.nextDouble();
+        disciplina.darNota(aluno, nota, unidade);
+    }
 
 }
